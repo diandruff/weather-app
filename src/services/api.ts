@@ -12,6 +12,9 @@ export async function GetAsync<ResponseType>(endpoint: string): Promise<any> {
 
   return fetch(url)
     .then(function (response) {
+      if (!response.ok) {
+        alert("Failed fetching weather data.");
+      }
       // The response is a Response instance.
       // You parse the data into a useable format using `.json()`
       return response.json();
